@@ -26,3 +26,35 @@ CREATE TABLE users (   id SERIAL NOT NULL PRIMARY KEY ,
 
 INSERT INTO users VALUES (1,'user1','user1@test.ch','123456');
 INSERT INTO users VALUES (2,'user2','user2@test.ch','123456');
+
+CREATE TABLE Heating (
+                         HeatingID SERIAL PRIMARY KEY,
+                         MainEnergySource VARCHAR(50),
+                         ConsumptionMainSource DECIMAL(10, 2),
+                         SecondaryEnergySource VARCHAR(50),
+                         ConsumptionSecondarySource DECIMAL(10, 2)
+);
+
+CREATE TABLE Electricity (
+                             ElectricityID SERIAL PRIMARY KEY,
+                             TotalConsumption DECIMAL(10, 2),
+                             GridElectricityConsumption DECIMAL(10, 2),
+                             SolarElectricityConsumption DECIMAL(10, 2),
+                             SelectedPowerMix VARCHAR(50),
+                             Provider VARCHAR(50),
+                             PowerMixComposition VARCHAR(100),
+                             CO2Emissions DECIMAL(10, 2)
+);
+
+CREATE TABLE SolarPanel (
+                            SolarPanelID SERIAL PRIMARY KEY,
+                            IsPhotovoltaicPresent BOOLEAN,
+                            Area DECIMAL(10, 2),
+                            Power DECIMAL(10, 2),
+                            Production DECIMAL(10, 2)
+);
+
+CREATE TABLE Renovations (
+                             RenovationID SERIAL PRIMARY KEY,
+                             IsMinergieBuilding BOOLEAN
+);
