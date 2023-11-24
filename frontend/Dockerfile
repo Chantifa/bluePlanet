@@ -1,30 +1,29 @@
 FROM node:15.3-alpine
-
-# Set the working directory to /app
-WORKDIR /frontend
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install Angular CLI
-RUN npm install -g @angular/cli
-
-# Install app dependencies
-RUN npm install
-
-# Copy the current directory contents into the container at /app
+# Copy package files to the working directory
 COPY . .
+# Install Angular CLI
+RUN rm -rf node_modules
+RUN npm cache clean -f
+RUN npm install -g @angular/cli
+RUN npm install
+RUN npm ci
 
-# Build the Angular app
-RUN ng build --prod
+# Copy the rest of the application code to the working directory
 
-# Use a smaller base image for the final image
-FROM nginx:1.21.3
-# Copy the Angular app build from the 'builder' stage to the nginx server
-COPY --from=builder /app/dist/ /usr/share/nginx/html
 
-# Expose port 80 to the outside world
-EXPOSE 80
+# Build the Angular app in production mode
+CMD ["npm","run","build"]
 
-# Start Nginx when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+FROM nginx:alpine
+COPY --from=build /frontend/dist /usr/share/nginx/html
+COPY --from=build /frontend/startup.sh /app/startup.sh
+RUN chmod +x /app/startup.sh
+RUN sed -i 's/\r//' /app/startup.sh
+COPY --from=build /frontend/nginx.conf /etc/nginx/conf.d/default.conf
+ENTRYPOINT ["sh", "/frontend/startup.sh"]
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Start the Angular app
+CMD ["npm", "test"]
