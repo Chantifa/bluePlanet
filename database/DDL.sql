@@ -58,3 +58,4 @@ CREATE TABLE Renovations (
                              RenovationID SERIAL PRIMARY KEY,
                              IsMinergieBuilding BOOLEAN
 );
+
