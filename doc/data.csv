@@ -1,0 +1,6 @@
+﻿Name der Schule;Hauptenergieträger der Heizung(en):;Energieverbrauch für Hauptenergieträger der Heizung im Referenzjahr in kWh:;Gesamter Stromverbrauch für Elektrizität im Referenzjahr in kWh:;Strom bezogen aus Stromnetz:;Strom bezogen aus Solaranlage (falls vorhanden):;Ranking Strommix (1-gut, 2-mittel, 3-schlecht):;Gewählter Strommix:;Anbieter:;CO2-Emissionen des Strommixes:;Photovoltaik-Anlage vorhanden:;Fläche der PV-Anlage:;Leistung der Solaranlage:;Stromproduktion der Solaranlage:;Minergiegebäude:;anzahl Schüler;Gebäudegrösse in Quadratmeter
+Grundschule 1;Heizöl;20000;50000;Ja ;;1;Naturstrom;ewz Elektrizitätswerk der Stadt Zürich;0,01;Ja;60;140;1260;;80;170
+Grundschule 2;Wärmepumpe;45000;80000;Nein ;;3;Standardstrom;Elektrizitätswerke des Kantons Zürich - EKZ;0,8;;;;;Ja;120;200
+Sekundarschule 3;Biogas;50000;100000;Ja ;;2;Ökostrom;Alpiq AG;0,45;Ja;100;153;2300;Ja;200;250
+Sekundarschule 4;Heizöl;35000;93000;Nein ;;1;Naturstrom;Werke am Zürichsee AG;0,02;;;;;;180;240
+Sekundarschule 5;Holzwpellets/Schnitzel;32000;120000;Nein;;3;Standardstrom;Elektrizitätswerke des Kantons Zürich - EKZ;0,7;;;;;Ja;200;300
