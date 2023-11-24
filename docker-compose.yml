@@ -1,21 +1,53 @@
 version: "3"
-
 services:
-
-  swindia:
-    container_name: gisdaten
-    image: gisdaten
-    build: database/
+  frontend:
+    image: blueplanet/src-frontend:latest
+    container_name: frontend
+    build: ./frontend
     volumes:
-      - postgres-volume:/var/lib/postgresql/data
-        - DDL.sql:/docker-entrypoint-initdb.d/DDL.sql
+      -  blueplanet-volume:/frontend/
+      - ./frontend:/frontend/
+    ports:
+      - 3000:3000
+    working_dir: /frontend/
+    networks:
+      - mynetwork
+    stdin_open: true
+    restart: always
+  backend:
+    image: blueplanet/src-backend:latest
+    container_name: backend
+    build: ./backend
+    volumes:
+      - blueplanet-volume:/backend/
+      - ./backend:/backend
+    ports:
+      - 4000:4000
+    networks:
+      - mynetwork
+    environment:
+      DB_HOST_NAME: storage
+      SPRING_PROFILES_ACTIVE: container
+    depends_on:
+      - storage
+    restart: always
+
+  storage:
+    image: blueplanet/src-storage:latest
+    container_name: database
+    build: ./backend/database
+    volumes:
+      - blueplanet-volume:/var/lib/postgresql/data
+    networks:
+      - mynetwork
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: gisdaten
+      POSTGRES_DB: blueplanet
     ports:
       - 5432:5432
     restart: always
+networks:
+  mynetwork:
 volumes:
-  postgres-volume:
-
+  blueplanet-volume:
