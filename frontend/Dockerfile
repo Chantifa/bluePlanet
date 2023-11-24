@@ -19,8 +19,7 @@ COPY . .
 RUN ng build --prod
 
 # Use a smaller base image for the final image
-FROM nginx:alpine
-
+FROM nginx:1.21.3
 # Copy the Angular app build from the 'builder' stage to the nginx server
 COPY --from=builder /app/dist/ /usr/share/nginx/html
 

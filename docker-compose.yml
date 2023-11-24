@@ -8,7 +8,7 @@ services:
       -  blueplanet-volume:/frontend/
       - ./frontend:/frontend/
     ports:
-      - 3000:3000
+      - 8080:80
     networks:
       - mynetwork
     stdin_open: true
