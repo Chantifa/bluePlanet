@@ -9,7 +9,6 @@ services:
       - ./frontend:/frontend/
     ports:
       - 3000:3000
-    working_dir: /frontend/
     networks:
       - mynetwork
     stdin_open: true
