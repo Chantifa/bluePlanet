@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  swindia:
+    container_name: gisdaten
+    image: gisdaten
+    build: database/
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+        - DDL.sql:/docker-entrypoint-initdb.d/DDL.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: gisdaten
+    ports:
+      - 5432:5432
+    restart: always
+volumes:
+  postgres-volume:
+
