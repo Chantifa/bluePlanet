@@ -1,21 +1,21 @@
 version: "3"
 services:
   frontend:
-    image: chantifa/blueplanet-frontend:3.0.0
+    image: chantifa/blueplanet-frontend:4.0.0
     container_name: frontend
     build: ./frontend
     volumes:
       -  blueplanet-volume:/frontend/
       - ./frontend:/frontend/
     ports:
-      - 8080:8080
+      - 4200:80
     working_dir: /frontend/
     networks:
       - mynetwork
     stdin_open: true
     restart: always
   backend:
-    image: chantifa/blueplanet-backend:3.0.0
+    image: chantifa/blueplanet-backend:4.0.0
     container_name: backend
     build: ./backend
     volumes:
@@ -33,7 +33,7 @@ services:
     restart: always
 
   storage:
-    image: chantifa/blueplanet-storage:3.0.0
+    image: chantifa/blueplanet-storage:4.0.0
     container_name: database
     build: ./backend/database
     volumes:

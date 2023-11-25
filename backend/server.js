@@ -82,6 +82,36 @@ app.post("/login", jsonParser, async (req, res) => {
 
 
 });
+
+
+// Endpoint to handle form data submission
+app.post('mobility', async (req, res) => {
+    try {
+        const formData = req.body;
+
+        // Insert data into PostgreSQL database (modify this query based on your table structure)
+        const query = `
+      INSERT INTO Mobility (mobility_schueler, mobility_lehrpersonen, besondere_abmachungen, reglement_flugreisen, reglement_klassenlager)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING *;
+    `;
+
+        const values = [
+            formData.mobilitySchueler,
+            formData.mobilityLehrpersonen,
+            formData.besondereAbmachungen,
+            formData.reglementFlugreisen,
+            formData.reglementKlassenlager,
+            // Add other values as needed
+        ];
+
+        const result = await pool.query(query, values);
+        res.json(result.rows[0]); // Send a response indicating success
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Error saving form data' }); // Send an error response
+    }
+});
 app.post('/energie', jsonParser, async (req, res) => {
     try {
         // API URL
