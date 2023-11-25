@@ -3,10 +3,10 @@ import {FloatLabelType} from '@angular/material/form-field';
 import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'biodiversity',
-  templateUrl: './biodiversity.component.html',
+  selector: 'mobility',
+  templateUrl: './mobility.component.html',
 })
-export class BiodiversityComponent {
+export class MobilityComponent {
   hideRequiredControl = new FormControl(false);
   floatLabelControl = new FormControl('auto' as FloatLabelType);
   options = this._formBuilder.group({

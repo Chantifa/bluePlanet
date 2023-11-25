@@ -6,21 +6,14 @@
       <mat-grid-list cols="2" rowHeight="2:1">
         <mat-grid-tile [style.background]="'lightblue'" (click)="navigateToEnergie()">{{'Energie'}}</mat-grid-tile>
         <mat-grid-tile [style.background]="'lightblue'" (click)="navigateToBiodiversity()">{{'Biodiversität'}}</mat-grid-tile>
-        <mat-grid-tile [style.background]="'lightblue'">{{'Mobilität'}}</mat-grid-tile>
+        <mat-grid-tile [style.background]="'lightblue'" (click)="navigateToMobility()">{{'Mobilität'}}</mat-grid-tile>
         <mat-grid-tile [style.background]="'lightblue'">{{'Abfall & Ressourcen'}}</mat-grid-tile>
         <mat-grid-tile [style.background]="'lightblue'">{{'Ernährung'}}</mat-grid-tile>
       </mat-grid-list>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-      <div class="social-links">
-        <a
-          href="https://www.klimaschule.ch/schulen/"
-          aria-label="Klimaschule"
-          target="_blank"
-          rel="noopener">{{'Klimaschule'}}
-        </a>
-      </div>
+      <klimaschule></klimaschule>
     </div>
   </div>
 </main>

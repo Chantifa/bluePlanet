@@ -1,69 +1,71 @@
 import {Injectable} from "@angular/core";
+import {FormControl} from "@angular/forms";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SchoolService {
-  biodiversity: BiodiversityEval | undefined;
-  energie: EnergieEval | undefined;
-  /* . . . */
+    biodiversity: BiodiversityEval | undefined;
+    energie: EnergieEval | undefined;
 
-  addBiodiversity(biodiversity: BiodiversityEval) {
-    this.biodiversity = biodiversity;
-  }
+    /* . . . */
 
-  getBiodiversity() {
-    return this.biodiversity;
-  }
+    addBiodiversity(biodiversity: BiodiversityEval) {
+        this.biodiversity = biodiversity;
+    }
 
-  clearBiodiversity() {
-    this.biodiversity = undefined;
-  }
+    getBiodiversity() {
+        return this.biodiversity;
+    }
 
-  addEnergie(energieEval: EnergieEval) {
-    this.energie = energieEval;
-  }
+    clearBiodiversity() {
+        this.biodiversity = undefined;
+    }
 
-  getEnergie() {
-    return this.energie;
-  }
+    addEnergie(energieEval: EnergieEval) {
+        this.energie = energieEval;
+    }
 
-  clearEnergie() {
-    this.energie = undefined;
-  }
+    getEnergie() {
+        return this.energie;
+    }
+
+    clearEnergie() {
+        this.energie = undefined;
+    }
 }
 
 export class BiodiversityEval {
-  hatGarten: boolean;
-  hatKompost: boolean;
+    hatGarten: boolean;
+    hatKompost: boolean;
 
-  constructor(hatGarten: boolean, hatKompost: boolean) {
-    this.hatGarten = hatGarten;
-    this.hatKompost = hatKompost;
-  }
+    constructor(hatGarten: boolean, hatKompost: boolean) {
+        this.hatGarten = hatGarten;
+        this.hatKompost = hatKompost;
+    }
 }
 
 export class EnergieEval {
-  heizart: HeizartenEnum;
-  energieVerbrauchHaupt: number;
-  sekundaerEnergie: HeizartenEnum;
-  energieVerbrauchSek: number;
+    heizart: HeizartenEnum | null;
+    energieVerbrauchHaupt: number | null;
+    sekundaerEnergie: HeizartenEnum | null;
+    energieVerbrauchSek: number | null;
 
-  constructor(heizart: HeizartenEnum, energieVerbrauchHaupt: number, sekundaerEnergie: HeizartenEnum, energieVerbrauchSek: number) {
-    this.heizart = heizart;
-    this.energieVerbrauchHaupt = energieVerbrauchHaupt;
-    this.sekundaerEnergie = sekundaerEnergie;
-    this.energieVerbrauchSek = energieVerbrauchSek;
-  }
+    constructor(heizart: HeizartenEnum | null, energieVerbrauchHaupt: number | null, sekundaerEnergie: HeizartenEnum | null, energieVerbrauchSek: number | null) {
+        this.heizart = heizart;
+        this.energieVerbrauchHaupt = energieVerbrauchHaupt;
+        this.sekundaerEnergie = sekundaerEnergie;
+        this.energieVerbrauchSek = energieVerbrauchSek;
+    }
 
 }
 
 export enum HeizartenEnum {
-  geothermie = 'Geothermie',
-  heizoel = 'Heizöl',
-  erdgas = 'Erdgas',
-  biogas = 'Biogas',
-  holzpellets = 'Holzpellets/Schnitzel',
-  fernwaerme = 'Fernwärme',
-  waermepumpe = 'Wärmepumpe'
+    geothermie = 'Geothermie',
+    heizoel = 'Heizöl',
+    erdgas = 'Erdgas',
+    biogas = 'Biogas',
+    holzpellets = 'Holzpellets/Schnitzel',
+    fernwaerme = 'Fernwärme',
+    waermepumpe = 'Wärmepumpe',
 }

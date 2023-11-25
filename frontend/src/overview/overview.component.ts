@@ -6,8 +6,6 @@ import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'overview',
-  standalone: true,
-  imports: [CommonModule, MatGridListModule],
   templateUrl: './overview.component.html',
 })
 export class OverviewComponent {
@@ -20,6 +18,10 @@ export class OverviewComponent {
 
   navigateToBiodiversity() {
     this.router.navigate(['/', 'biodiversity']);
+  }
+
+  navigateToMobility() {
+    this.router.navigate(['/', 'mobility']);
   }
 
 }
