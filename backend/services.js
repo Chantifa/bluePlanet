@@ -1,5 +1,5 @@
 //api service
-const apiUrl = 'https://api.example.com/zurich-energy-data';
+const apiUrl = 'https://api3.geo.admin.ch/rest/services/api/MapServer/ch.bfe.elektrische-anlagen_ueber_36';
 
 // Make a GET request to the API
 fetch(apiUrl)
@@ -7,6 +7,8 @@ fetch(apiUrl)
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        var data = response.json()
+        date_parse = data[document].data
         return response.json();
     })
     .then(data => {

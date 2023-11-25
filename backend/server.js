@@ -83,6 +83,7 @@ app.post("/users/login", jsonParser,  async (req, res) => {
 
 });
 
+app.get("/users/login")
 app.listen(4000,() => {
     console.log("Http Server started on PORT 4000");
 })

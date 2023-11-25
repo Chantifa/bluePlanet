@@ -34,7 +34,13 @@ export class SchoolService {
 }
 
 export class BiodiversityEval {
+  hatGarten: boolean;
+  hatKompost: boolean;
 
+  constructor(hatGarten: boolean, hatKompost: boolean) {
+    this.hatGarten = hatGarten;
+    this.hatKompost = hatKompost;
+  }
 }
 
 export class EnergieEval {
