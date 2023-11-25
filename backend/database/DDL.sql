@@ -37,7 +37,7 @@ INSERT INTO Schule (
     CO2_Emission,
     Photovolaikanlage,
     Photovoltaikanlage_Flaeche,
-    Photovolaikanlage_Leistung,
+    Photovolaikanlage_Leistung,blueplanet.public
     Photovolaikanlage_Produktion,
     Miergie,
     Anzahl_Schueler,
