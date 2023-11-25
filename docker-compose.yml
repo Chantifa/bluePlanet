@@ -1,7 +1,7 @@
 version: "3"
 services:
   frontend:
-    image: chantifa/blueplanet-frontend:4.0.0
+    image: chantifa/blueplanet-frontend:5.0.0
     container_name: frontend
     build: ./frontend
     volumes:
