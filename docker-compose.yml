@@ -1,20 +1,21 @@
 version: "3"
 services:
   frontend:
-    image: blueplanet/src-frontend:latest
+    image: blueplanet/frontend:1.0.0
     container_name: frontend
     build: ./frontend
     volumes:
       -  blueplanet-volume:/frontend/
       - ./frontend:/frontend/
     ports:
-      - 8080:80
+      - 3000:3000
+    working_dir: /frontend/
     networks:
       - mynetwork
     stdin_open: true
     restart: always
   backend:
-    image: blueplanet/src-backend:latest
+    image: blueplanet/backend:1.0.0
     container_name: backend
     build: ./backend
     volumes:
@@ -32,7 +33,7 @@ services:
     restart: always
 
   storage:
-    image: blueplanet/src-storage:latest
+    image: blueplanet/storage:1.0.0
     container_name: database
     build: ./backend/database
     volumes:
