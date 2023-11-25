@@ -15,7 +15,7 @@ services:
     stdin_open: true
     restart: always
   backend:
-    image: chantifa/blueplanet-backend:2.0.0
+    image: chantifa/blueplanet-backend:3.0.0
     container_name: backend
     build: ./backend
     volumes:
@@ -33,7 +33,7 @@ services:
     restart: always
 
   storage:
-    image: chantifa/blueplanet-storage:2.0.0
+    image: chantifa/blueplanet-storage:3.0.0
     container_name: database
     build: ./backend/database
     volumes:
