@@ -1,0 +1,83 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side" style="width: 40rem">
+      <h1>{{ "Klimaschule Report" }}</h1>
+      <p></p>
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile [style.background]="'lightblue'" (click)="navigateToEnergie()">{{'Energie'}}</mat-grid-tile>
+        <mat-grid-tile [style.background]="'lightblue'" (click)="navigateToBiodiversity()">{{'Biodiversität'}}</mat-grid-tile>
+        <mat-grid-tile [style.background]="'lightblue'" (click)="navigateToMobility()">{{'Mobilität'}}</mat-grid-tile>
+        <mat-grid-tile [style.background]="'lightblue'">{{'Abfall & Ressourcen'}}</mat-grid-tile>
+        <mat-grid-tile [style.background]="'lightblue'">{{'Ernährung'}}</mat-grid-tile>
+      </mat-grid-list>
+      <br><br>
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'Generelle Info'}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem">{{'Schulname: ' + this.schoolservice.getSchulname()}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Adresse: ' + this.schoolservice.getSchulname()}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Referenzjahr: ' + this.schoolservice.getSchulname()}}</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'Energie'}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem">{{'Hauptenergieträger: ' + translateNull(this.schoolservice.getEnergie()?.heizart)}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Energieverbrauch: ' + this.schoolservice.getEnergie()?.energieVerbrauchHaupt}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Sekundärenergieträger: ' + this.schoolservice.getEnergie()?.sekundaerEnergie}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Energieverbrauch: ' + this.schoolservice.getEnergie()?.energieVerbrauchSek}}</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'Biodiversität'}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem">{{'Garten: ' + translate(this.schoolservice.getBiodiversity()?.hatGarten)}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Kompostiermöglichkeit: ' + translate(this.schoolservice.getBiodiversity()?.hatKompost)}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Weiteres: ' + this.schoolservice.getBiodiversity()?.weiteres}}</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'Mobilität'}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem">{{'E-Bikes: ' + translate(this.schoolservice.getMobility()?.hatEBikes)}}</mat-list-item>
+            <mat-list-item role="listitem">{{'E-Autos: ' + translate(this.schoolservice.getMobility()?.hatEAutos)}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Geschätztes Mobilverhalten der Schüler/innen: ' + this.schoolservice.getMobility()?.mobVerhaltenS}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Geschätztes Mobilverhalten der Lehrpersonen: ' + this.schoolservice.getMobility()?.mobVerhaltenL}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Besondere Abmachungen: ' + this.schoolservice.getMobility()?.abmachungen}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Reglement für Flugreisen: ' + this.schoolservice.getMobility()?.regelFlugreisen}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Reglemente für andere Reisen: ' + this.schoolservice.getMobility()?.regelReisen}}</mat-list-item>
+            <mat-list-item role="listitem">{{'Weiteres: ' + this.schoolservice.getMobility()?.weiteres}}</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br><br>
+      <button mat-raised-button color="primary" (click)="openRanking()">Ranking</button>
+      <button mat-raised-button color="primary" style="margin-left: 5rem" (click)="openPotential()">Potentiall ermitteln</button>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      {{'Willkommen ' + this.loginService.getUser() + '!'}}
+      <klimaschule></klimaschule>
+    </div>
+  </div>
+</main>

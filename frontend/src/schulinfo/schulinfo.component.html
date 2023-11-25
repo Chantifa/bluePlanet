@@ -1,0 +1,27 @@
+<main class="main">
+    <div class="content">
+        <div class="left-side" style="width: 40rem">
+            <form class="example-form">
+                <h1>{{ 'Schulinfo' }}</h1>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>{{'Schulname'}}</mat-label>
+                    <input matInput (change)="setname()" [formControl]="schulname">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>{{'Schuladresse'}}</mat-label>
+                    <input matInput (change)="setadresse()" [formControl]="schuladresse">
+                </mat-form-field>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>{{'Referenzjahr'}}</mat-label>
+                    <input matInput (change)="setjahr()" [formControl]="referenzjahr">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="onSave()">Erstellen</button>
+            </form>
+            <br>
+        </div>
+        <div class="divider" role="separator" aria-label="Divider"></div>
+        <div class="right-side">
+            <klimaschule></klimaschule>
+        </div>
+    </div>
+</main>

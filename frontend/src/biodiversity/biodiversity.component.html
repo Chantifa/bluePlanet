@@ -1,0 +1,27 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side" style="width: 40rem">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ 'Biodiversität' }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions style="width: 100%">
+          <form class="example-form" style="width: 100%">
+            <mat-checkbox class="example-margin" [ngModelOptions]="{standalone: true}" [(ngModel)]=hatGarten>Garten</mat-checkbox>
+            <br>
+            <mat-checkbox class="example-margin" [ngModelOptions]="{standalone: true}" [(ngModel)]=hatKompost>Kompostiermöglichkeit</mat-checkbox>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Weiteres</mat-label>
+              <textarea matInput name="weiteres" [(ngModel)]=weiteres></textarea>
+            </mat-form-field>
+            <button mat-raised-button style="float: right" color="primary" (click)="onSubmit()">Speichern</button>
+          </form>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <klimaschule></klimaschule>
+    </div>
+  </div>
+</main>

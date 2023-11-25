@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Energie Potential {{this.schoolService.getJahr()}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <canvas
+                baseChart
+                class="chart"
+                [data]="barChartData"
+                [options]="barChartOptions"
+                [type]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+        >
+        </canvas>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Biodiversität Potential</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     <a href="https://maps.zh.ch?topic=VetBienenstaendewwwZH&scale=23832&x=2681932.19&y=1247188.12&srid=2056&markers=ring">{{'Geodaten'}}</a>
+    </mat-card-content>
+</mat-card>

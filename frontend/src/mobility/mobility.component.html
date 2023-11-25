@@ -1,0 +1,46 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side" style="width: 40rem">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ 'Mobilität' }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions style="width: 100%">
+          <form class="example-form" style="width: 100%">
+            <mat-checkbox class="example-margin" [ngModelOptions]="{standalone: true}" [(ngModel)]="hatEBikes">E-Bikes</mat-checkbox>
+            <br>
+            <mat-checkbox class="example-margin" [ngModelOptions]="{standalone: true}" [(ngModel)]="hatEAutos">E-Autos</mat-checkbox>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Geschätztes Mobilverhalten der Schüler/innen</mat-label>
+              <textarea matInput name="mobVerhaltenS" [(ngModel)]="mobVerhaltenS"></textarea>
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Geschätztes Mobilverhalten der Lehrpersonen</mat-label>
+              <textarea matInput name="mobVerhaltenL" [(ngModel)]="mobVerhaltenL"></textarea>
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Besondere Abmachungen</mat-label>
+              <textarea matInput name="abmachungen" [(ngModel)]="abmachungen"></textarea>
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Reglement für Flugreisen</mat-label>
+              <textarea matInput name="regelFlugreisen" [(ngModel)]="regelFlugreisen"></textarea>
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Reglemente für Klassenlager / Maturareisen / Exkursionen etc.</mat-label>
+              <textarea matInput name="regelReisen" [(ngModel)]="regelReisen"></textarea>
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+              <mat-label>Weiteres</mat-label>
+              <textarea matInput name="weiteres" [(ngModel)]="weiteres"></textarea>
+            </mat-form-field>
+            <button mat-raised-button style="float: right" color="primary" (click)="onSubmit()">Speichern</button>
+          </form>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+    </div>
+  </div>
+</main>
