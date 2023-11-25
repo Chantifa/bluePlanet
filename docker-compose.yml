@@ -8,7 +8,7 @@ services:
       -  blueplanet-volume:/frontend/
       - ./frontend:/frontend/
     ports:
-      - 3000:3000
+      - 4200:4200
     working_dir: /frontend/
     networks:
       - mynetwork
@@ -22,7 +22,7 @@ services:
       - blueplanet-volume:/backend/
       - ./backend:/backend
     ports:
-      - 4200:4200
+      - 4000:4000
     networks:
       - mynetwork
     environment:
