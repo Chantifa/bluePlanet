@@ -1,6 +1,8 @@
-DROP TABLE IF EXISTS Schule;
-
-CREATE TABLE Schule (   SchuleID SERIAL PRIMARY KEY,
+DROP DATABASE IF EXISTS blueplanet;
+CREATE DATABASE blueplanet;
+CREATE SCHEMA blueplanet;
+DROP TABLE IF EXISTS blueplanet.Schule;
+CREATE TABLE blueplanet.Schule (   SchuleID SERIAL PRIMARY KEY,
                         Name VARCHAR(50),
                         Strasse VARCHAR(50),
                         Hausnummer Varchar(5),
@@ -26,9 +28,8 @@ CREATE TABLE Schule (   SchuleID SERIAL PRIMARY KEY,
                         Miergie BOOLEAN,
                         Betriebsoptimierungen VARCHAR(500),
                         Weiteres VARCHAR(500)
-)
-
-INSERT INTO Schule (
+);
+INSERT INTO blueplanet.Schule (
     Name,
     Hauptenergietraeger,
     Hauptenergietraeger_Verbrauch,
@@ -45,8 +46,9 @@ INSERT INTO Schule (
     Schulhaus_Flaeche
 )
 VALUES
-    ('Schule Gockhausen ZH', 'Heizöl', 20000, 50000, 'Naturstrom', 'ewz Elektrizitätswerk der Stadt Zürich', 0.01, '1', 60, 140, 1260, 0, 80, 170),
-    ('Freie Schule Winterthur ZH', 'Wärmepumpe', 45000, 80000, 'Standardstrom', 'Elektrizitätswerke des Kantons Zürich - EKZ', 0.8, '0', NULL, NULL, NULL, '1', 120, 200),
+    ('Schule Gockhausen ZH', 'Heizöl', 20000, 50000, 'Naturstrom', 'ewz Elektrizitätswerk der Stadt Zürich', 0.01, '1', 60, 140, 1260, false, 80, 170),
+    ('Freie Schule Winterthur ZH', 'Wärmepumpe', 45000, 80000, 'Standardstrom', 'Elektrizitätswerke des Kantons Zürich - EKZ', 0.8, '0', NULL, NULL, NULL, false, 120, 200),
     ('Sekundarschule Gelterkinden BL', 'Biogas', 50000, 100000, 'Ökostrom', 'Alpiq AG', 0.45, '1', 100, 153, 2300, '1', 200, 250),
-    ('Sekundarschule Hüenerweid Dietlikon ZH', 'Heizöl', 35000, 93000, 'Naturstrom', 'Werke am Zürichsee AG', 0.02, '0', NULL, NULL, NULL, '0', 180, 240),
-    ('Sekundarschule Seuzach ZH', 'Holzpellets/Schnitzel', 32000, 120000, 'Standardstrom', 'Elektrizitätswerke des Kantons Zürich - EKZ', 0.7, '0', NULL, NULL, NULL, '1', 200, 300)
+    ('Sekundarschule Hüenerweid Dietlikon ZH', 'Heizöl', 35000, 93000, 'Naturstrom', 'Werke am Zürichsee AG', 0.02, '0', NULL, NULL, NULL, false, 180, 240),
+    ('Sekundarschule Seuzach ZH', 'Holzpellets/Schnitzel', 32000, 120000, 'Standardstrom', 'Elektrizitätswerke des Kantons Zürich - EKZ', 0.7, '0', NULL, NULL, NULL, false, 200, 300)
+;

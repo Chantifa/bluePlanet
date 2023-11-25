@@ -11,7 +11,6 @@ CMD ["npm", "start"]
 # Copy the rest of the application code to the working directory
 
 # Generate the build of the application
-RUN npm run build
 
 
 # Stage 2: Serve app with nginx server
