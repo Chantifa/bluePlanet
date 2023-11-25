@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS blueplanet;
-CREATE DATABASE blueplanet;
 CREATE SCHEMA blueplanet;
 DROP TABLE IF EXISTS blueplanet.Schule;
-CREATE TABLE blueplanet.Schule (   SchuleID SERIAL PRIMARY KEY,
+CREATE TABLE Schule (   SchuleID SERIAL PRIMARY KEY,
                         Name VARCHAR(50),
                         Strasse VARCHAR(50),
                         Hausnummer Varchar(5),
@@ -29,7 +27,7 @@ CREATE TABLE blueplanet.Schule (   SchuleID SERIAL PRIMARY KEY,
                         Betriebsoptimierungen VARCHAR(500),
                         Weiteres VARCHAR(500)
 );
-INSERT INTO blueplanet.Schule (
+INSERT INTO Schule (
     Name,
     Hauptenergietraeger,
     Hauptenergietraeger_Verbrauch,
